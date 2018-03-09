@@ -69,10 +69,10 @@ def tweet(tweet_text):
     # Note: you must run `source secrets.sh` before running this file
     # to make sure these environmental variables are set.
 
-    api = twitter.Api(consumer_key='consumer_key',
-                      consumer_secret='consumer_secret',
-                      access_token_key='access_token',
-                      access_token_secret='access_token_secret')
+    api = twitter.Api(consumer_key=os.environ['TWITTER_CONSUMER_KEY'],
+                      consumer_secret=os.environ['TWITTER_CONSUMER_SECRET'],
+                      access_token_key=os.environ['TWITTER_ACCESS_TOKEN_KEY'],
+                      access_token_secret=os.environ['TWITTER_ACCESS_TOKEN_SECRET'])
 
     status = api.PostUpdate(tweet_text)
     print status
